@@ -1,0 +1,69 @@
+#include <LiquidCrystal.h>
+#include <Wire.h>
+
+LiquidCrystal lcd (12, 11, 5, 4, 3, 2);
+
+byte lightning[8] = {
+  B00001,
+  B00110,
+  B01100,
+  B11111,
+  B00011,
+  B00110,
+  B01100,
+};
+
+int index = 0;
+const int number_of_readings = 200;
+const int current_zero = 510.58; //calibrar//
+int current_reading[number_of_readings];
+
+float current_average = current_zero;
+float current_total = 0;
+
+void setup (){
+  lcd.begin (16,2);
+  lcd.createChar(6,lightning);
+  Serial.begin (9600);
+
+  lcd.setCursor(0,0);
+  lcd.print(" ");
+  lcd.print("Power Meter");
+  lcd.setCursor(0,1);
+  lcd.print(" ");
+  lcd.print("D.A. Toapanta");
+  delay (1000);
+  lcd.clear();
+}
+
+void loop (){
+current_reading[index]=analogRead(A0);
+current_total = current_total + current_reading [index];
+index=index + 1;   
+
+if (index >= number_of_readings){
+  current_average= current_total/number_of_readings;
+  Serial.print ("\tCurrent average=");
+  Serial.print (current_average);
+ current_total=0;
+ index=0; 
+} 
+
+float current_mv = (current_average-current_zero)*5;
+float current = current_mv/185;
+ Serial.print ("\tCurrent =");
+ Serial.print (current);
+ delay (500);
+
+lcd.clear();
+lcd.setCursor(0,0);
+lcd.print(" ");
+lcd.print(current);
+lcd.print("[A]");
+
+  delay (500);
+}
+  
+  
+  
+  
