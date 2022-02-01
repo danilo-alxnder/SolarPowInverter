@@ -18,12 +18,12 @@ Three main functions of the inverter:
 
 ## Images
 <p align="center">
-<img src="https://user-images.githubusercontent.com/70687643/152019902-a6bc7f60-df48-4071-a1b1-e5dd725060eb.png" width =665">
+<img src="https://user-images.githubusercontent.com/70687643/152019902-a6bc7f60-df48-4071-a1b1-e5dd725060eb.png" width =865">
 </p>
 
 ## Results
 <p align="center">
-<img src="https://user-images.githubusercontent.com/70687643/152019006-ff19a75b-2bce-4325-996a-288efb816486.jpg" width =665">
+<img src="https://user-images.githubusercontent.com/70687643/152019006-ff19a75b-2bce-4325-996a-288efb816486.jpg" width =965">
 </p>
 
 
